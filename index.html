@@ -7,6 +7,54 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Add your HTML here -->
+    <!-- Navigation bar at the top -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="img/cw_logo-2.png" alt="Charity:Water Logo">
+        </div>
+        <div class="navbar-content">
+            <ul class="navbar-links">
+                <li><a href="#">Create Impact</a></li>
+                <li><a href="#">Why Water</a></li>
+            </ul>
+            <!-- This button scrolls to the donation section -->
+            <a href="#donate-section" class="navbar-donate">Donate</a>
+        </div>
+    </nav>
+
+    <!-- Hero section with background image and overlay text -->
+    <section class="hero">
+        <div class="hero-text-box">
+            <h1>Quench the world before your next class starts</h1>
+            <p>See your impact flow, one donation, one life at a time</p>
+        </div>
+    </section>
+
+    <!-- Donation section below the hero image -->
+    <div id="donate-section" class="donation-group-wrapper">
+        <div class="donation-group">
+            <!-- Donation amount buttons -->
+            <button class="donation-btn">$10 USD</button>
+            <button class="donation-btn">$20 USD</button>
+            <button class="donation-btn">$40 USD</button>
+            <button class="donation-btn">$100 USD</button>
+            <button class="donation-btn">Other amount</button>
+        </div>
+        <!-- Big call-to-action button -->
+        <button class="impact-btn">IMPACT TODAY</button>
+    </div>
+
+    <!-- Simple script to highlight selected donation button -->
+    <script>
+    // When a donation button is clicked, highlight it
+    document.querySelectorAll('.donation-btn').forEach(function(btn) {
+        btn.onclick = function() {
+            document.querySelectorAll('.donation-btn').forEach(function(b) {
+                b.classList.remove('selected'); // Remove highlight from all
+            });
+            btn.classList.add('selected'); // Highlight the clicked one
+        };
+    });
+    </script>
 </body>
 </html>

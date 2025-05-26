@@ -17,3 +17,238 @@ Fonts:
 - Avenir
 
 */
+
+/* 
+  Simple Navbar Styles for Charity:Water
+  Uses flexbox for layout and beginner-friendly CSS
+  Fonts: Proxima Nova, Avenir, Arial, sans-serif
+*/
+
+/* Set the default font and remove default margin/padding */
+body {
+    font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Navbar Styles --- */
+
+/* The navbar uses flexbox to align items */
+.navbar {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Space between logo, links, and button */
+    background: #8BD1CB; /* Light Blue */
+    padding: 10px 20px; /* Space inside navbar */
+}
+
+/* Logo styles */
+.navbar-logo img {
+    height: 28px; /* Smaller logo for a compact navbar */
+}
+
+/* Navigation links styles */
+.navbar-links {
+    list-style: none; /* Remove bullets */
+    display: flex; /* Display links in a row */
+    gap: 20px; /* Space between links */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links a, .navbar-donate {
+    color: #fff;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 1em;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+.navbar-links a:hover {
+    background: #afd4f3;
+}
+
+/* Donate button styles */
+.navbar-donate {
+    background: #FF902A; /* Orange */
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.navbar-donate:hover {
+    background: #eec34f; /* Red on hover */
+}
+
+/* Put the links and donate button next to the logo */
+/* We use a simple wrapper to group links and button together */
+.navbar-content {
+    display: flex; /* Place links and button in a row */
+    align-items: center; /* Vertically center items */
+    gap: 20px; /* Space between links and button */
+}
+
+/* Responsive: Stack items on small screens */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+    .navbar-content {
+        flex-direction: column; /* Stack links and button vertically */
+        align-items: flex-start;
+        width: 100%;
+        gap: 0;
+    }
+    .navbar-links {
+        flex-direction: column; /* Stack links vertically */
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .navbar-donate {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Hero section with background image and text overlay */
+
+/* The hero section covers the full width and has a background image */
+/* Hero section styles */
+/* The hero uses the full image size and a simple overlay */
+
+.hero {
+    width: 100%;
+    min-height: 500px; /* Height of the hero section */
+    background: url('img/CW_Hero.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Overlay covers the full hero section */
+.hero::before {
+  content: "";
+  position: absolute; /* Position over the image */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(139, 209, 203, 0.85); /* Semi-transparent Light Blue */
+  z-index: 1; /* Place overlay above image, below text */
+}
+
+/* Text box is centered and above the overlay */
+.hero-text-box {
+    position: relative; /* Needed to appear above overlay */
+    z-index: 2; /* Show text above overlay */
+    padding: 32px 16px; /* Space inside the text box */
+    border-radius: 8px;
+    text-align: center; /* Center text */
+    max-width: 500px;
+    width: 100%; /* Make text box as wide as the hero */
+    margin: 0 auto; /* Center text box horizontally */
+    background: none; /* No background color here */
+}
+
+/* Heading style */
+.hero-text-box h1 {
+    color: #FFC907;
+    font-size: 2.2em;
+    margin: 0 0 18px 0;
+    font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
+}
+
+/* Subheadline style */
+.hero-text-box p {
+    color: #FFC907;
+    font-size: 1.2em;
+    margin: 0;
+    font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
+}
+
+/* Responsive: Make hero smaller and text fit on small screens */
+@media (max-width: 600px) {
+    .hero {
+        min-height: 220px;
+    }
+    .hero-text-box {
+        padding: 12px 6px;
+    }
+    .hero-text-box h1 {
+        font-size: 1.1em;
+    }
+    .hero-text-box p {
+        font-size: 1em;
+    }
+}
+
+/* Wrapper for the donation group to center everything and add spacing */
+/* This section now stretches full width, with no border radius */
+.donation-group-wrapper {
+    width: 100%;
+    text-align: center;
+    padding: 40px 0 48px 0; /* More padding for space inside */
+    background: #8BD1CB; /* Light Blue background */
+    box-sizing: border-box;
+}
+
+/* Donation group styles - space out buttons in one row */
+.donation-group {
+    margin: 0 0 24px 0; /* More space below the group */
+    display: flex; /* Place buttons in a row */
+    flex-wrap: nowrap; /* Do not wrap to next line on large screens */
+    gap: 24px; /* More space between buttons */
+    justify-content: center; /* Center the buttons */
+}
+
+/* Individual donation amount buttons */
+.donation-btn {
+    background: #fff;
+    color: #2E9DF7;
+    border: 2px solid #159A48;
+    border-radius: 24px; /* Rounded edges */
+    padding: 10px 22px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.donation-btn:hover, .donation-btn.selected {
+    background: #159A48;
+    color: #fff;
+}
+
+/* Large yellow-orange call-to-action button */
+.impact-btn {
+    background: #FFC907; /* Yellow */
+    color: #fff;
+    border: none;
+    border-radius: 28px;
+    padding: 16px 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.impact-btn:hover {
+    background: #FF902A; /* Orange on hover */
+}
+
+/* Responsive: On small screens, allow buttons to wrap and add spacing */
+@media (max-width: 600px) {
+    .navbar { flex-direction: column; align-items: flex-start; }
+    .navbar-content { width: 100%; }
+    .navbar-links { flex-direction: column; gap: 10px; }
+    .donation-group { flex-wrap: wrap; gap: 12px; }
+    .impact-btn { width: 100%; padding: 16px 0; font-size: 1em; }
+    .hero { min-height: 220px; }
+    .hero-text-box { padding: 12px 6px; }
+}
